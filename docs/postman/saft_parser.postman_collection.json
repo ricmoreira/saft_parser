@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "b9fc50a4-d5b3-43c4-b713-2a8211d1cc0c",
+		"name": "saft_parser",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{saft_parser_host}}/api/v1/saft/upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "SAFT-XML",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{saft_parser_host}}/api/v1/saft/upload",
+					"host": [
+						"{{saft_parser_host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"saft",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

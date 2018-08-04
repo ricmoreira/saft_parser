@@ -1,0 +1,23 @@
+# Group SAFT
+
+# Upload SAFT file [/api/v1/saft/upload]
+
+## Upload SAFT file [POST]
+
+Sends parsed data to Kafka from uploaded file
+
++ Request Upload SAFT file (multipart/form-data)
+
+    + Headers
+
+            Content-Disposition: form-data; name="SAFT-XML"; filename="somefile.xml"
+
+    + Body
+
+            data
+
++ Response 200 (application/json)
+
+        {
+            "files_uploaded": [ "somefile.xml" ]
+        }

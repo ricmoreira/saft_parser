@@ -1,0 +1,17 @@
+FORMAT: 1A
+
+# saft_parser REST API Documentation
+
+## Description
+service that allows to upload a SAFT file and, from its parsing, data is sent to Kafka
+
+## Error Codes
+
+HTTP Status Code | Code | Response                        
+---------:| ------------|-----------------------------------
+500 | SERVICE_UNAVAILABLE | The service is currently unavailable
+500 | UNKNOWN_ERROR | Unknown server error
+409 | DUPLICATED_ENTITY | Entity already exists
+400 | INVALID_REQUEST | Invalid request provided
+
+<!-- include(saftUpload.apib) -->
