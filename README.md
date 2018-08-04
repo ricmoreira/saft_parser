@@ -1,5 +1,5 @@
 # saft_parser
-SAF-T (Standard Audit File for Tax) is an international standard for electronic exchange of reliable accounting data from organizations to a national tax authority or external auditors. [source Wikipedia](https://en.wikipedia.org/wiki/SAF-T)
+SAF-T (Standard Audit File for Tax) is an international standard for electronic exchange of reliable accounting data from organizations to a national tax authority or external auditors [source: Wikipedia](https://en.wikipedia.org/wiki/SAF-T)
 
 This REST API provides an endpoint to upload a SAF-T XML file and, from its parsing, all Products contained in it will be sent to a Kafka server from the built in Kafka client producer
 
