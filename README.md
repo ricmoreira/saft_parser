@@ -1,5 +1,5 @@
 # saft_parser
-Provides JWT tokens to valid users and is responsible for users management
+Provides an endpoint to upload a XML file and, from its parsing, data will be generated to a Kafka server
 
 # Requirements
 [Go v1.9 or upper](https://golang.org/doc/install)
