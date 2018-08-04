@@ -5,4 +5,9 @@ type (
 	SAFTUpload struct {
 		FilesUploaded []string `json:"files_uploaded"`
 	}
+
+	FileToKafka struct {
+		ProductsCount int      `json:"products_count"`
+		ProductsCodes []string `json:"products_codes"`
+	}
 )

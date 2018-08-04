@@ -22,5 +22,5 @@ type CustomsDetails struct {
 
 type AuditFile struct {
 	XMLName  xml.Name  `xml:"AuditFile"`
-	Products []Product `json:"Products" xml:"MasterFiles>Product"`
+	Products []*Product `json:"Products" xml:"MasterFiles>Product"`
 }

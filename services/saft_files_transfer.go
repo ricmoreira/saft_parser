@@ -10,24 +10,22 @@ import (
 )
 
 type (
-	// SAFTService represents the service for operating on SAFT files
-	SAFTService struct {
+	// SAFTFileTransfer represents the service for transfering SAFT files
+	SAFTFileTransfer struct {
 		config *config.Config
-		saftParser *SAFTParser
 	}
 )
 
 // NewSAFTService is the constructor of SAFTService
-func NewSAFTService(config *config.Config, saftParser *SAFTParser) *SAFTService {
-	return &SAFTService{
+func NewSAFTFileTransfer (config *config.Config) *SAFTFileTransfer {
+	return &SAFTFileTransfer{
 		config: config,
-		saftParser: saftParser,
 	}
 }
 
-// UploadAction stores a file in disk
+// UploadSAFTFile stores a file in disk
 // TODO: a better file storage solution should be implemented
-func (this SAFTService) UploadAction(fileHeader *multipart.FileHeader) (*mresponse.SAFTUpload, *mresponse.ErrorResponse) {
+func (this SAFTFileTransfer) UploadSAFTFile(fileHeader *multipart.FileHeader) (*mresponse.SAFTUpload, *mresponse.ErrorResponse) {
 
 	file, err := fileHeader.Open()
 	if err != nil {
@@ -44,8 +42,6 @@ func (this SAFTService) UploadAction(fileHeader *multipart.FileHeader) (*mrespon
 		return nil, util.HandleErrorResponse(util.INVALID_REQUEST, nil, err.Error())
 	}
 
-	this.saftParser.ParseFile(fileHeader.Filename)
-	
 	r := &mresponse.SAFTUpload{
 		FilesUploaded: []string{fileHeader.Filename},
 	}

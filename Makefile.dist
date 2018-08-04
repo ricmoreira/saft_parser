@@ -22,6 +22,8 @@ run:
 	export MONGO_HOST=mongodb://localhost:27017 ; 
 	export MONGO_DATABASE=saft_parser ; 
 	export SAFT_FILES_FOLDER=/some/folder/to/store/saft/files ; \
+	export BOOTSTRAP_SERVERS=localhost:9092; \
+	export MESSAGE_MAX_BYTES=5242880; \
 	go run main.go
 
 build: clean

@@ -8,6 +8,12 @@
   version = "v9"
 
 [[projects]]
+  name = "github.com/confluentinc/confluent-kafka-go"
+  packages = ["kafka"]
+  revision = "5e4d04e05fc319ce5996a867aafef29059f26862"
+  version = "v0.11.4"
+
+[[projects]]
   name = "github.com/gin-contrib/cors"
   packages = ["."]
   revision = "cf4846e6a636a76237a28d9286f163c132e841bc"
@@ -77,6 +83,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "930926aff58e82143293905eff7234419a2e28570cf3eb2e7479338480d573d3"
+  inputs-digest = "c894c9397ae0ff7307fff3e1906ee252275390d7f32e96bb0f4fd655914448d8"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -47,7 +47,7 @@ func (s *Server) Run() {
 	saftApi := r.Group("/api/v1/saft")
 	{
 		// Upload a file
-		saftApi.POST("/upload", s.saftController.UploadAction)
+		saftApi.POST("/file-to-kafka", s.saftController.FileToKafkaAction)
 	}
 
 	// Fire up the server

@@ -23,8 +23,9 @@ func BuildContainer() *dig.Container {
 	// persistance layer
 
 	// services
+	container.Provide(services.NewKafkaProducer)
+	container.Provide(services.NewSAFTFileTransfer)
 	container.Provide(services.NewSAFTParser)
-	container.Provide(services.NewSAFTService)
 
 	// controllers
 	container.Provide(controllers.NewSAFTController)

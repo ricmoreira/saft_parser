@@ -39,3 +39,6 @@
 [prune]
   go-tests = true
   unused-packages = true
+[[constraint]]
+  name = "github.com/confluentinc/confluent-kafka-go"
+  version = "0.11.4"

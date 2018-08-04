@@ -36,7 +36,7 @@ var ResponseMessageErrorsMapper = map[string]string{
 
 // HandleErrorResponse returns a pointer to an ErrorResponse instance that matches App error response message protocol.
 // If the httpCode is 0 we must use the default errorCode mapping association.
-func HandleErrorResponse(errorCode string, errorsDetails []*mresponse.ErrorDetail, customErrorMessage string) *mresponse.ErrorResponse {
+func HandleErrorResponse(errorCode string, errorsDetails *[]*mresponse.ErrorDetail, customErrorMessage string) *mresponse.ErrorResponse {
 
 	httpCode := HttpErrorsMapper[errorCode]
 	if httpCode == 0 { // not found any matching Http code
@@ -56,10 +56,7 @@ func HandleErrorResponse(errorCode string, errorsDetails []*mresponse.ErrorDetai
 		HttpCode: httpCode,
 		Code:     errorCode,
 		Response: response,
-	}
-
-	if len(errorsDetails) != 0 {
-		errorResponse.Errors = &errorsDetails
+		Errors: errorsDetails,
 	}
 
 	return &errorResponse
