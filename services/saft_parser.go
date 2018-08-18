@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"saft_parser/config"
-	"saft_parser/models/saft-pt-4"
+	"saft_parser/models/saft/go_SaftT104"
 )
 
 type (
@@ -23,7 +23,7 @@ func NewSAFTParser(config *config.Config) *SAFTParser {
 }
 
 // ParseFile receives a xml file name located in SAFT_FILES_FOLDER and marshalls file data to an *msaft.AuditFile model
-func (sp *SAFTParser) ParseFile(fileName string) (*msaft.AuditFile, error) {
+func (sp *SAFTParser) ParseFile(fileName string) (*go_SaftT104.TxsdAuditFile, error) {
 	xmlFile, err := os.Open(config.MustGetEnv(config.SAFT_FILES_FOLDER) + string(os.PathSeparator) + fileName)
 
 	if err != nil {
@@ -37,7 +37,7 @@ func (sp *SAFTParser) ParseFile(fileName string) (*msaft.AuditFile, error) {
 		return nil, err
 	}
 
-	v := &msaft.AuditFile{}
+	v := &go_SaftT104.TxsdAuditFile{}
 	if err := xml.Unmarshal(byteValue, v); err != nil {
 		return nil, err
 	}

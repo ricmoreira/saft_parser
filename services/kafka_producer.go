@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"saft_parser/config"
 	"saft_parser/models/response"
-	"saft_parser/models/saft-pt-4"
+	"saft_parser/models/saft/go_SaftT104"
 	"saft_parser/util"
 	"strconv"
 
@@ -45,39 +45,84 @@ func (kp *KafkaProducer) Connect() error {
 	return nil
 }
 
-// SendProductsToTopic sends an array of *msaft.Product to provided topic name
-func (kp *KafkaProducer) SendProductsToTopic(topic string, request []*msaft.Product) (*mresponse.FileToKafka, *mresponse.ErrorResponse) {
+// SendProductsToTopic sends an array of *go_SaftT104.TxsdProduct to provided topic name
+func (kp *KafkaProducer) SendProductsToTopic(topic string, request []*go_SaftT104.TxsdProduct) *mresponse.FileToKafkaProducts {
+
+	res := mresponse.FileToKafkaProducts {}
 
 	jptBytes, err := json.Marshal(request)
 	if err != nil {
-		return nil, util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, err.Error())
+		res.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, err.Error())
+		return &res
 	}
 
 	// don't allow to process more than max size allowed of data
 	if len(jptBytes) > kp.config.MessageMaxBytes {
 		s := strconv.Itoa(kp.config.MessageMaxBytes)
-		return nil, util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, "To many products to processs. Max allowed: " + s + " bytes of data.")
+		res.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, "To many products to processs. Max allowed: " + s + " bytes of data.")
+		return &res
 	}
 
 	e := kp.sendMessage(topic, jptBytes)
 
 	if e != nil {
-		return nil, e
+		res.Error = e
+		return &res
 	}
 
-	resp := &mresponse.FileToKafka{
-		ProductsCount: len(request),
-		ProductsCodes: reduceToProductsCodes(request),
-	}
+	res.ProductsCount = len(request)
+	res.ProductsCodes = reduceToProductsCodes(request)
 
-	return resp, nil
+	return &res
 }
 
-func reduceToProductsCodes(products []*msaft.Product) []string {
+
+// SendInvoicesToTopic sends an array of *go_SaftT104.TxsdSourceDocumentsSequenceSalesInvoicesSequenceInvoice to provided topic name
+func (kp *KafkaProducer) SendInvoicesToTopic(topic string, request []*go_SaftT104.TxsdSourceDocumentsSequenceSalesInvoicesSequenceInvoice) *mresponse.FileToKafkaInvoices {
+
+	resp := mresponse.FileToKafkaInvoices{}
+
+	jptBytes, err := json.Marshal(request)
+	if err != nil {
+		resp.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, err.Error())
+		return &resp 
+	}
+
+	// don't allow to process more than max size allowed of data
+	if len(jptBytes) > kp.config.MessageMaxBytes {
+		s := strconv.Itoa(kp.config.MessageMaxBytes)
+		resp.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, "To many invoices to processs. Max allowed: " + s + " bytes of data.")
+		return &resp
+	}
+
+	e := kp.sendMessage(topic, jptBytes)
+
+	if e != nil {
+		resp.Error = e
+		return &resp
+	}
+
+	resp.InvoicesCount = len(request)
+	resp.InvoicesCodes = reduceToInvoicesCodes(request)
+
+	return &resp
+}
+
+func reduceToProductsCodes(products []*go_SaftT104.TxsdProduct) []string {
 	res := make([]string, len(products))
 
 	for i, product := range products {
-		res[i] = product.ProductCode
+		res[i] = string(product.ProductCode)
+	}
+
+	return res
+}
+
+func reduceToInvoicesCodes(invoices []*go_SaftT104.TxsdSourceDocumentsSequenceSalesInvoicesSequenceInvoice) []string {
+	res := make([]string, len(invoices))
+
+	for i, invoice := range invoices {
+		res[i] = string(invoice.InvoiceNo)
 	}
 
 	return res

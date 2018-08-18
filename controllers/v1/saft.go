@@ -1,9 +1,10 @@
 package controllers
 
 import (
-	"saft_parser/util"
-
+	"saft_parser/models/response"
 	"saft_parser/services"
+	"saft_parser/util"
+	"sync"
 
 	"github.com/gin-gonic/gin"
 )
@@ -66,8 +67,39 @@ func (this SAFTController) FileToKafkaAction(c *gin.Context) {
 		return
 	}
 
+	// call Kafka producer to send messages
+	var wg  sync.WaitGroup
+	wg.Add(2)
+
+	cProducts := make(chan *mresponse.FileToKafkaProducts, 1)
+	cInvoices := make(chan *mresponse.FileToKafkaInvoices, 1)
+
+	var productsResult *mresponse.FileToKafkaProducts
+	var invoicesResult *mresponse.FileToKafkaInvoices
+
 	// send products to Kafka
-	resp, e := this.kafkaClient.SendProductsToTopic("products", auditFile.Products)
+	go func() {
+		defer wg.Done()
+		cProducts <- this.kafkaClient.SendProductsToTopic("products", auditFile.MasterFiles.Products)
+		productsResult = <-cProducts
+	}()
+
+	// send invoices to Kafka
+	go func() {
+		defer wg.Done()
+		cInvoices <- this.kafkaClient.SendInvoicesToTopic("invoices", auditFile.SourceDocuments.SalesInvoices.Invoices)
+		invoicesResult = <-cInvoices
+	}()
+
+	// wait for all results
+	wg.Wait()
+
+	// send combined result
+	resp := mresponse.FileToKafka{
+		Products: productsResult,
+		Invoices: invoicesResult,
+	}
+
 	if e != nil {
 		c.JSON(e.HttpCode, e)
 		return
