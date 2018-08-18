@@ -2,12 +2,12 @@ package services
 
 import (
 	"encoding/json"
-	"fmt"
 	"saft_parser/config"
 	"saft_parser/models/response"
 	"saft_parser/models/saft/go_SaftT104"
 	"saft_parser/util"
 	"strconv"
+	"log"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
@@ -37,7 +37,7 @@ func (kp *KafkaProducer) Connect() error {
 	p, err := kafka.NewProducer(config)
 
 	if err != nil {
-		fmt.Printf("Failed to create producer: %s\n", err)
+		log.Printf("Failed to create producer: %s\n", err)
 		return err
 	}
 
@@ -148,11 +148,11 @@ func (kp *KafkaProducer) sendMessage(topic string, message []byte) *mresponse.Er
 	m := e.(*kafka.Message)
 
 	if m.TopicPartition.Error != nil {
-		fmt.Printf("Delivery failed: %v\n", m.TopicPartition.Error)
+		log.Printf("Delivery failed: %v\n", m.TopicPartition.Error)
 		close(deliveryChan)
 		return util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, m.TopicPartition.Error.Error())
 	} else {
-		fmt.Printf("Delivered message to topic %s [%d] at offset %v\n",
+		log.Printf("Delivered message to topic %s [%d] at offset %v\n",
 			*m.TopicPartition.Topic, m.TopicPartition.Partition, m.TopicPartition.Offset)
 		close(deliveryChan)
 		return nil
