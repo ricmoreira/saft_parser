@@ -68,14 +68,16 @@ func (this SAFTController) FileToKafkaAction(c *gin.Context) {
 	}
 
 	// call Kafka producer to send messages
-	var wg  sync.WaitGroup
-	wg.Add(2)
+	var wg sync.WaitGroup
+	wg.Add(3)
 
 	cProducts := make(chan *mresponse.FileToKafkaProducts, 1)
 	cInvoices := make(chan *mresponse.FileToKafkaInvoices, 1)
+	cHeader := make(chan *mresponse.FileToKafkaHeader, 1)
 
 	var productsResult *mresponse.FileToKafkaProducts
 	var invoicesResult *mresponse.FileToKafkaInvoices
+	var headerResult *mresponse.FileToKafkaHeader
 
 	// send products to Kafka
 	go func() {
@@ -91,6 +93,13 @@ func (this SAFTController) FileToKafkaAction(c *gin.Context) {
 		invoicesResult = <-cInvoices
 	}()
 
+	// send header to Kafka
+	go func() {
+		defer wg.Done()
+		cHeader <- this.kafkaClient.SendHeaderToTopic("header", auditFile.Header)
+		headerResult = <-cHeader
+	}()
+
 	// wait for all results
 	wg.Wait()
 
@@ -98,11 +107,7 @@ func (this SAFTController) FileToKafkaAction(c *gin.Context) {
 	resp := mresponse.FileToKafka{
 		Products: productsResult,
 		Invoices: invoicesResult,
-	}
-
-	if e != nil {
-		c.JSON(e.HttpCode, e)
-		return
+		Header: headerResult,
 	}
 
 	c.JSON(200, resp)

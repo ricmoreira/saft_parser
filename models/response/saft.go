@@ -18,8 +18,13 @@ type (
 		Error         *ErrorResponse `json:"error,omitempty"`
 	}
 
+	FileToKafkaHeader struct {
+		Error  *ErrorResponse          `json:"error,omitempty"`
+	}
+
 	FileToKafka struct {
 		Products *FileToKafkaProducts `json:"products"`
 		Invoices *FileToKafkaInvoices `json:"invoices"`
+		Header   *FileToKafkaHeader   `json:"header"`
 	}
 )

@@ -108,6 +108,34 @@ func (kp *KafkaProducer) SendInvoicesToTopic(topic string, request []*go_SaftT10
 	return &resp
 }
 
+// SendHeaderToTopic sends the Header of SAFT-T file, containing company info to provided topic name
+func (kp *KafkaProducer) SendHeaderToTopic(topic string, request *go_SaftT104.TxsdHeader) *mresponse.FileToKafkaHeader {
+
+	resp := mresponse.FileToKafkaHeader{}
+
+	jptBytes, err := json.Marshal(request)
+	if err != nil {
+		resp.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, err.Error())
+		return &resp 
+	}
+
+	// don't allow to process more than max size allowed of data
+	if len(jptBytes) > kp.config.MessageMaxBytes {
+		s := strconv.Itoa(kp.config.MessageMaxBytes)
+		resp.Error = util.HandleErrorResponse(util.SERVICE_UNAVAILABLE, nil, "To many invoices to processs. Max allowed: " + s + " bytes of data.")
+		return &resp
+	}
+
+	e := kp.sendMessage(topic, jptBytes)
+
+	if e != nil {
+		resp.Error = e
+		return &resp
+	}
+
+	return &resp
+}
+
 func reduceToProductsCodes(products []*go_SaftT104.TxsdProduct) []string {
 	res := make([]string, len(products))
 
