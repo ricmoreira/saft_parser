@@ -3613,7 +3613,7 @@ func (me *XsdGoPkgHasElem_GeneralLedgerEntries) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_InvoiceNo struct {
-	InvoiceNo TSAFPTTransactionID `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceNo" json:"InvoiceNo" bson:"InvoiceNo"`
+	InvoiceNo string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceNo" json:"InvoiceNo" bson:"InvoiceNo"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_InvoiceNo function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_InvoiceNo instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_InvoiceNo instance.
@@ -4188,7 +4188,7 @@ func (me *XsdGoPkgHasElem_DocumentStatussequenceTxsdSourceDocumentsSequenceSales
 }
 
 type XsdGoPkgHasElem_InvoiceDate struct {
-	InvoiceDate TSAFdateType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceDate" json:"InvoiceDate" bson:"InvoiceDate"`
+	InvoiceDate string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceDate" json:"InvoiceDate" bson:"InvoiceDate"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_InvoiceDate function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_InvoiceDate instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_InvoiceDate instance.
@@ -5395,7 +5395,7 @@ func (me *XsdGoPkgHasElems_PaymentsequenceTxsdSourceDocumentsSequenceSalesInvoic
 }
 
 type XsdGoPkgHasElem_TaxPayable struct {
-	TaxPayable TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxPayable" json:"TaxPayable" bson:"TaxPayable"`
+	TaxPayable float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxPayable" json:"TaxPayable" bson:"TaxPayable"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_TaxPayable function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_TaxPayable instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_TaxPayable instance.
@@ -5416,7 +5416,7 @@ func (me *XsdGoPkgHasElem_TaxPayable) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_NetTotal struct {
-	NetTotal TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 NetTotal" json:"NetTotal" bson:"NetTotal"`
+	NetTotal float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 NetTotal" json:"NetTotal" bson:"NetTotal"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_NetTotal function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_NetTotal instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_NetTotal instance.
@@ -5437,7 +5437,7 @@ func (me *XsdGoPkgHasElem_NetTotal) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_GrossTotal struct {
-	GrossTotal TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 GrossTotal" json:"GrossTotal" bson:"GrossTotal"`
+	GrossTotal float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 GrossTotal" json:"GrossTotal" bson:"GrossTotal"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_GrossTotal function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_GrossTotal instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_GrossTotal instance.
@@ -9255,7 +9255,7 @@ func (me *XsdGoPkgHasElems_GLPostingDate) Walk() (err error) {
 }
 
 type XsdGoPkgHasElems_GrossTotal struct {
-	GrossTotals []TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 GrossTotal" json:"GrossTotal" bson:"GrossTotal"`
+	GrossTotals []float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 GrossTotal" json:"GrossTotal" bson:"GrossTotal"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElems_GrossTotal function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElems_GrossTotal instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElems_GrossTotal instance.
@@ -9360,7 +9360,7 @@ func (me *XsdGoPkgHasElems_IECAmount) Walk() (err error) {
 }
 
 type XsdGoPkgHasElems_InvoiceDate struct {
-	InvoiceDates []TSAFdateType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceDate" json:"InvoiceDate" bson:"InvoiceDate"`
+	InvoiceDates []string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 InvoiceDate" json:"InvoiceDate" bson:"InvoiceDate"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElems_InvoiceDate function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElems_InvoiceDate instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElems_InvoiceDate instance.
@@ -9570,7 +9570,7 @@ func (me *XsdGoPkgHasElems_MovementStatusDate) Walk() (err error) {
 }
 
 type XsdGoPkgHasElems_NetTotal struct {
-	NetTotals []TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 NetTotal" json:"NetTotal" bson:"NetTotal"`
+	NetTotals []float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 NetTotal" json:"NetTotal" bson:"NetTotal"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElems_NetTotal function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElems_NetTotal instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElems_NetTotal instance.
@@ -10494,7 +10494,7 @@ func (me *XsdGoPkgHasElems_TaxExpirationDate) Walk() (err error) {
 }
 
 type XsdGoPkgHasElems_TaxPayable struct {
-	TaxPayables []TSAFmonetaryType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxPayable" json:"TaxPayable" bson:"TaxPayable"`
+	TaxPayables []float64 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxPayable" json:"TaxPayable" bson:"TaxPayable"`
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElems_TaxPayable function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElems_TaxPayable instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElems_TaxPayable instance.
