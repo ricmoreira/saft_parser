@@ -9,7 +9,7 @@ import (
 )
 
 type XsdGoPkgHasElem_SoftwareCertificateNumber struct {
-	SoftwareCertificateNumber xsdt.NonNegativeInteger `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 SoftwareCertificateNumber" bson:"SoftwareCertificateNumber" json:"SoftwareCertificateNumber"`
+	SoftwareCertificateNumber int32 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 SoftwareCertificateNumber" bson:"SoftwareCertificateNumber" json:"SoftwareCertificateNumber"` // xsdt.NonNegativeInteger
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_SoftwareCertificateNumber function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_SoftwareCertificateNumber instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_SoftwareCertificateNumber instance.
@@ -43,7 +43,7 @@ func (me TxsdCompanyID) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_CompanyID struct {
 	//	Concatenacao da Conservatoria do Registo Comercial com o numero do registo comercial separados pelo caracter espaco. Nos casos em que nao existe o registo comercial, deve ser indicado o NIF.
-	CompanyID TxsdCompanyID `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CompanyID" bson:"CompanyID" json:"CompanyID"`
+	CompanyID string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CompanyID" bson:"CompanyID" json:"CompanyID"`// TxsdCompanyID
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_CompanyID function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_CompanyID instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_CompanyID instance.
@@ -101,7 +101,7 @@ func (me TxsdTaxAccountingBasis) IsT() bool { return me.String() == "T" }
 
 type XsdGoPkgHasElem_TaxAccountingBasis struct {
 	//	C para Contabilidade, E para Faturacao emitida por terceiros, F para Faturacao, I para Contabilidade integrada com a faturacao, P para Faturacao parcial, R para Recibos (a), S para Autofaturacao, T para Documentos de transporte (a). (a) Deve ser indicado este tipo, se o programa apenas este emitir este tipo de documento. Caso contrario, devera ser utilizado o tipo C, F ou I
-	TaxAccountingBasis TxsdTaxAccountingBasis `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxAccountingBasis" bson:"TaxAccountingBasis" json:"TaxAccountingBasis"`
+	TaxAccountingBasis string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxAccountingBasis" bson:"TaxAccountingBasis" json:"TaxAccountingBasis"` // TxsdTaxAccountingBasis
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_TaxAccountingBasis function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_TaxAccountingBasis instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_TaxAccountingBasis instance.
@@ -133,7 +133,7 @@ func (me TSAFPTtextTypeMandatoryMax100Car) String() string { return xsdt.String(
 func (me TSAFPTtextTypeMandatoryMax100Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_CompanyName struct {
-	CompanyName TSAFPTtextTypeMandatoryMax100Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CompanyName" bson:"CompanyName" json:"CompanyName"`
+	CompanyName string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CompanyName" bson:"CompanyName" json:"CompanyName"` // TSAFPTtextTypeMandatoryMax100Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_CompanyName function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_CompanyName instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_CompanyName instance.
@@ -165,7 +165,7 @@ func (me TxsdFiscalYear) String() string { return xsdt.Integer(me).String() }
 func (me TxsdFiscalYear) ToXsdtInteger() xsdt.Integer { return xsdt.Integer(me) }
 
 type XsdGoPkgHasElem_FiscalYear struct {
-	FiscalYear TxsdFiscalYear `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 FiscalYear" bson:"FiscalYear" json:"FiscalYear"`
+	FiscalYear int32 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 FiscalYear" bson:"FiscalYear" json:"FiscalYear"` // TxsdFiscalYear
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_FiscalYear function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_FiscalYear instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_FiscalYear instance.
@@ -197,7 +197,7 @@ func (me TSAFPTDateSpan) String() string { return xsdt.Date(me).String() }
 func (me TSAFPTDateSpan) ToXsdtDate() xsdt.Date { return xsdt.Date(me) }
 
 type XsdGoPkgHasElem_StartDate struct {
-	StartDate TSAFPTDateSpan `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 StartDate" bson:"StartDate" json:"StartDate"`
+	StartDate string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 StartDate" bson:"StartDate" json:"StartDate"` // TSAFPTDateSpan
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_StartDate function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_StartDate instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_StartDate instance.
@@ -218,7 +218,7 @@ func (me *XsdGoPkgHasElem_StartDate) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_EndDate struct {
-	EndDate TSAFPTDateSpan `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 EndDate" json:"EndDate" bson:"EndDate"`
+	EndDate string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 EndDate" json:"EndDate" bson:"EndDate"` // TSAFPTDateSpan
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_EndDate function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_EndDate instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_EndDate instance.
@@ -250,7 +250,7 @@ func (me *TSAFPTtextTypeMandatoryMax20Car) Set(s string) { (*xsdt.String)(me).Se
 func (me TSAFPTtextTypeMandatoryMax20Car) String() string { return xsdt.String(me).String() }
 
 type XsdGoPkgHasElem_ProductCompanyTaxID struct {
-	ProductCompanyTaxID TSAFPTtextTypeMandatoryMax20Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductCompanyTaxID" bson:"ProductCompanyTaxID" json:"ProductCompanyTaxID"`
+	ProductCompanyTaxID string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductCompanyTaxID" bson:"ProductCompanyTaxID" json:"ProductCompanyTaxID"` // TSAFPTtextTypeMandatoryMax20Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_ProductCompanyTaxID function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_ProductCompanyTaxID instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_ProductCompanyTaxID instance.
@@ -282,7 +282,7 @@ func (me TSAFPTtextTypeMandatoryMax30Car) String() string { return xsdt.String(m
 func (me TSAFPTtextTypeMandatoryMax30Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_ProductVersion struct {
-	ProductVersion TSAFPTtextTypeMandatoryMax30Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductVersion" bson:"ProductVersion" json:"ProductVersion"`
+	ProductVersion string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductVersion" bson:"ProductVersion" json:"ProductVersion"` // TSAFPTtextTypeMandatoryMax30Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_ProductVersion function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_ProductVersion instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_ProductVersion instance.
@@ -303,7 +303,7 @@ func (me *XsdGoPkgHasElem_ProductVersion) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_AuditFileVersion struct {
-	AuditFileVersion TSAFPTtextTypeMandatoryMax30Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 AuditFileVersion" bson:"AuditFileVersion" json:"AuditFileVersion"`
+	AuditFileVersion string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 AuditFileVersion" bson:"AuditFileVersion" json:"AuditFileVersion"` // TSAFPTtextTypeMandatoryMax30Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_AuditFileVersion function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_AuditFileVersion instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_AuditFileVersion instance.
@@ -324,7 +324,7 @@ func (me *XsdGoPkgHasElem_AuditFileVersion) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_TaxEntity struct {
-	TaxEntity TSAFPTtextTypeMandatoryMax20Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxEntity" bson:"TaxEntity" json:"TaxEntity"`
+	TaxEntity string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxEntity" bson:"TaxEntity" json:"TaxEntity"` // TSAFPTtextTypeMandatoryMax20Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_TaxEntity function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_TaxEntity instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_TaxEntity instance.
@@ -356,7 +356,7 @@ func (me TSAFPTtextTypeMandatoryMax255Car) String() string { return xsdt.String(
 func (me TSAFPTtextTypeMandatoryMax255Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_HeaderComment struct {
-	HeaderComment TSAFPTtextTypeMandatoryMax255Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 HeaderComment" bson:"HeaderComment" json:"HeaderComment"`
+	HeaderComment string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 HeaderComment" bson:"HeaderComment" json:"HeaderComment"` // TSAFPTtextTypeMandatoryMax255Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_HeaderComment function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_HeaderComment instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_HeaderComment instance.
@@ -388,7 +388,7 @@ func (me TSAFPTtextTypeMandatoryMax60Car) String() string { return xsdt.String(m
 func (me TSAFPTtextTypeMandatoryMax60Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_Website struct {
-	Website TSAFPTtextTypeMandatoryMax60Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Website" bson:"Website" json:"Website"`
+	Website string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Website" bson:"Website" json:"Website"` // TSAFPTtextTypeMandatoryMax60Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Website function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Website instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Website instance.
@@ -420,7 +420,7 @@ func (me TSAFPTtextTypeMandatoryMax254Car) String() string { return xsdt.String(
 func (me TSAFPTtextTypeMandatoryMax254Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_Email struct {
-	Email TSAFPTtextTypeMandatoryMax254Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Email" bson:"Email" json:"Email"`
+	Email string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Email" bson:"Email" json:"Email"` // TSAFPTtextTypeMandatoryMax254Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Email function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Email instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Email instance.
@@ -441,7 +441,7 @@ func (me *XsdGoPkgHasElem_Email) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_Fax struct {
-	Fax TSAFPTtextTypeMandatoryMax20Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Fax" bson:"Fax" json:"Fax"`
+	Fax string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Fax" bson:"Fax" json:"Fax"` //TSAFPTtextTypeMandatoryMax20Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Fax function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Fax instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Fax instance.
@@ -473,7 +473,7 @@ func (me TSAFPTPortugueseVatNumber) String() string { return xsdt.Integer(me).St
 func (me TSAFPTPortugueseVatNumber) ToXsdtInteger() xsdt.Integer { return xsdt.Integer(me) }
 
 type XsdGoPkgHasElem_TaxRegistrationNumbersequenceTxsdHeaderHeaderschema_TaxRegistrationNumber_TSAFPTPortugueseVatNumber_ struct {
-	TaxRegistrationNumber TSAFPTPortugueseVatNumber `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxRegistrationNumber" bson:"TaxRegistrationNumber" json:"TaxRegistrationNumber"`
+	TaxRegistrationNumber int32 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 TaxRegistrationNumber" bson:"TaxRegistrationNumber" json:"TaxRegistrationNumber"` // TSAFPTPortugueseVatNumber
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_TaxRegistrationNumbersequenceTxsdHeaderHeaderschema_TaxRegistrationNumber_TSAFPTPortugueseVatNumber_ function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_TaxRegistrationNumbersequenceTxsdHeaderHeaderschema_TaxRegistrationNumber_TSAFPTPortugueseVatNumber_ instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_TaxRegistrationNumbersequenceTxsdHeaderHeaderschema_TaxRegistrationNumber_TSAFPTPortugueseVatNumber_ instance.
@@ -494,7 +494,7 @@ func (me *XsdGoPkgHasElem_TaxRegistrationNumbersequenceTxsdHeaderHeaderschema_Ta
 }
 
 type XsdGoPkgHasElem_BusinessName struct {
-	BusinessName TSAFPTtextTypeMandatoryMax60Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 BusinessName" bson:"BusinessName" json:"BusinessName"`
+	BusinessName string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 BusinessName" bson:"BusinessName" json:"BusinessName"` // TSAFPTtextTypeMandatoryMax60Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_BusinessName function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_BusinessName instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_BusinessName instance.
@@ -526,7 +526,7 @@ func (me *TSAFPTtextTypeMandatoryMax10Car) Set(s string) { (*xsdt.String)(me).Se
 func (me TSAFPTtextTypeMandatoryMax10Car) String() string { return xsdt.String(me).String() }
 
 type XsdGoPkgHasElem_BuildingNumber struct {
-	BuildingNumber TSAFPTtextTypeMandatoryMax10Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 BuildingNumber" bson:"BuildingNumber" json:"BuildingNumber"`
+	BuildingNumber string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 BuildingNumber" bson:"BuildingNumber" json:"BuildingNumber"` //TSAFPTtextTypeMandatoryMax10Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_BuildingNumber function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_BuildingNumber instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_BuildingNumber instance.
@@ -558,7 +558,7 @@ func (me *TSAFPTtextTypeMandatoryMax200Car) Set(s string) { (*xsdt.String)(me).S
 func (me TSAFPTtextTypeMandatoryMax200Car) String() string { return xsdt.String(me).String() }
 
 type XsdGoPkgHasElem_StreetName struct {
-	StreetName TSAFPTtextTypeMandatoryMax200Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 StreetName" bson:"StreetName" json:"StreetName"`
+	StreetName string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 StreetName" bson:"StreetName" json:"StreetName"` // XsdGoPkgHasElem_StreetName
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_StreetName function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_StreetName instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_StreetName instance.
@@ -590,7 +590,7 @@ func (me TSAFPTtextTypeMandatoryMax210Car) String() string { return xsdt.String(
 func (me TSAFPTtextTypeMandatoryMax210Car) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_AddressDetail struct {
-	AddressDetail TSAFPTtextTypeMandatoryMax210Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 AddressDetail" bson:"AddressDetail" json:"AddressDetail"`
+	AddressDetail string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 AddressDetail" bson:"AddressDetail" json:"AddressDetail"` // TSAFPTtextTypeMandatoryMax210Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_AddressDetail function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_AddressDetail instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_AddressDetail instance.
@@ -622,7 +622,7 @@ func (me *TSAFPTtextTypeMandatoryMax50Car) Set(s string) { (*xsdt.String)(me).Se
 func (me TSAFPTtextTypeMandatoryMax50Car) String() string { return xsdt.String(me).String() }
 
 type XsdGoPkgHasElem_City struct {
-	City TSAFPTtextTypeMandatoryMax50Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 City" bson:"City" json:"City"`
+	City string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 City" bson:"City" json:"City"` // TSAFPTtextTypeMandatoryMax50Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_City function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_City instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_City instance.
@@ -654,7 +654,7 @@ func (me TPostalCodePT) String() string { return xsdt.String(me).String() }
 func (me TPostalCodePT) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_PostalCodesequenceAddressStructurePTschema_PostalCode_TPostalCodePT_ struct {
-	PostalCode TPostalCodePT `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 PostalCode" bson:"PostalCode" json:"PostalCode"`
+	PostalCode string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 PostalCode" bson:"PostalCode" json:"PostalCode"` // TPostalCodePT
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_PostalCodesequenceAddressStructurePTschema_PostalCode_TPostalCodePT_ function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_PostalCodesequenceAddressStructurePTschema_PostalCode_TPostalCodePT_ instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_PostalCodesequenceAddressStructurePTschema_PostalCode_TPostalCodePT_ instance.
@@ -675,7 +675,7 @@ func (me *XsdGoPkgHasElem_PostalCodesequenceAddressStructurePTschema_PostalCode_
 }
 
 type XsdGoPkgHasElem_Region struct {
-	Region TSAFPTtextTypeMandatoryMax50Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Region" bson:"Region" json:"Region"`
+	Region string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Region" bson:"Region" json:"Region"` // TSAFPTtextTypeMandatoryMax50Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Region function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Region instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Region instance.
@@ -696,7 +696,7 @@ func (me *XsdGoPkgHasElem_Region) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_CountrysequenceAddressStructurePTschema_Country_XsdtString_Pt struct {
-	Country xsdt.String `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Country" bson:"Country" json:"Country"`
+	Country string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Country" bson:"Country" json:"Country"` // <!-- Codigo do pais (ISO 3166 1-alpha-2) -->
 }
 
 //	Returns the fixed value for Country -- "PT"
@@ -794,7 +794,7 @@ func (me *XsdGoPkgHasElem_CompanyAddress) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_CurrencyCodesequenceTxsdHeaderHeaderschema_CurrencyCode_XsdtString_Eur struct {
-	CurrencyCode xsdt.String `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CurrencyCode" bson:"CurrencyCode" json:"CurrencyCode"`
+	CurrencyCode string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 CurrencyCode" bson:"CurrencyCode" json:"CurrencyCode"`
 }
 
 //	Returns the fixed value for CurrencyCode -- "EUR"
@@ -820,7 +820,7 @@ func (me *XsdGoPkgHasElem_CurrencyCodesequenceTxsdHeaderHeaderschema_CurrencyCod
 }
 
 type XsdGoPkgHasElem_DateCreated struct {
-	DateCreated TSAFPTDateSpan `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 DateCreated" bson:"DateCreated" json:"DateCreated"`
+	DateCreated string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 DateCreated" bson:"DateCreated" json:"DateCreated"` // TSAFPTDateSpan
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_DateCreated function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_DateCreated instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_DateCreated instance.
@@ -852,7 +852,7 @@ func (me TSAFPTProductID) String() string { return xsdt.String(me).String() }
 func (me TSAFPTProductID) ToXsdtString() xsdt.String { return xsdt.String(me) }
 
 type XsdGoPkgHasElem_ProductID struct {
-	ProductID TSAFPTProductID `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductID" bson:"ProductID" json:"ProductID"`
+	ProductID string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductID" bson:"ProductID" json:"ProductID"` // TSAFPTProductID
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_ProductID function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_ProductID instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_ProductID instance.
@@ -873,7 +873,7 @@ func (me *XsdGoPkgHasElem_ProductID) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_Telephone struct {
-	Telephone TSAFPTtextTypeMandatoryMax20Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Telephone" bson:"Telephone" json:"Telephone"`
+	Telephone string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Telephone" bson:"Telephone" json:"Telephone"` // TSAFPTtextTypeMandatoryMax20Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Telephone function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Telephone instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Telephone instance.
