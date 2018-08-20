@@ -2250,7 +2250,7 @@ func (me *XsdGoPkgHasElem_ProductType) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_ProductCode struct {
-	ProductCode TSAFPTtextTypeMandatoryMax60Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductCode" json:"ProductCode" bson:"ProductCode"`
+	ProductCode string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 ProductCode" json:"ProductCode" bson:"ProductCode"` // TSAFPTtextTypeMandatoryMax60Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_ProductCode function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_ProductCode instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_ProductCode instance.
@@ -3013,7 +3013,7 @@ func (me TSAFdateTimeType) String() string { return xsdt.DateTime(me).String() }
 func (me TSAFdateTimeType) ToXsdtDateTime() xsdt.DateTime { return xsdt.DateTime(me) }
 
 type XsdGoPkgHasElem_SystemEntryDate struct {
-	SystemEntryDate TSAFdateTimeType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 SystemEntryDate" json:"SystemEntryDate" bson:"SystemEntryDate"`
+	SystemEntryDate string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 SystemEntryDate" json:"SystemEntryDate" bson:"SystemEntryDate"` // TSAFdateTimeType
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_SystemEntryDate function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_SystemEntryDate instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_SystemEntryDate instance.
@@ -4448,7 +4448,7 @@ func (me *XsdGoPkgHasElems_OrderReferencessequenceTxsdSourceDocumentsSequenceSal
 }
 
 type XsdGoPkgHasElem_Quantity struct {
-	Quantity TSAFdecimalType `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Quantity" json:"Quantity" bson:"Quantity"`
+	Quantity float32 `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 Quantity" json:"Quantity" bson:"Quantity"` // TSAFdecimalType
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_Quantity function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_Quantity instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_Quantity instance.
@@ -4559,7 +4559,7 @@ func (me *XsdGoPkgHasElem_SettlementAmount) Walk() (err error) {
 }
 
 type XsdGoPkgHasElem_UnitOfMeasure struct {
-	UnitOfMeasure TSAFPTtextTypeMandatoryMax20Car `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 UnitOfMeasure" json:"UnitOfMeasure" bson:"UnitOfMeasure"`
+	UnitOfMeasure string `xml:"urn:OECD:StandardAuditFile-Tax:PT_1.04_01 UnitOfMeasure" json:"UnitOfMeasure" bson:"UnitOfMeasure"` // TSAFPTtextTypeMandatoryMax20Car
 }
 
 //	If the WalkHandlers.XsdGoPkgHasElem_UnitOfMeasure function is not nil (ie. was set by outside code), calls it with this XsdGoPkgHasElem_UnitOfMeasure instance as the single argument. Then calls the Walk() method on 0/0 embed(s) and 0/1 field(s) belonging to this XsdGoPkgHasElem_UnitOfMeasure instance.
